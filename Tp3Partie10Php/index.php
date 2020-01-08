@@ -4,19 +4,25 @@ $portrait2 = array('name' => 'Jean', 'firstname' => 'de La Fontaine', 'portrait'
 $portrait3 = array('name' => 'Pierre', 'firstname' => 'Corneille', 'portrait' => 'http://upload.wikimedia.org/wikipedia/commons/2/2a/Pierre_Corneille_2.jpg');
 $portrait4 = array('name' => 'Jean', 'firstname' => 'Racine', 'portrait' => 'http://upload.wikimedia.org/wikipedia/commons/d/d5/Jean_racine.jpg');
 
-function displayTab($tab) {
-    $name = $tab['name'];
-    $firstName = $tab['firstname'];
-    $portrait = $tab['portrait'];
-    ?>
-    <div>
-        <?= $name ?>
-        <?= $firstName ?>
-    </div>
-    <div>
-        <img src="<?= $portrait ?>" width="500" height="500">
-    </div>
-<?php }
+function displayTab() {
+    $portraits = func_get_args();
+    foreach ($portraits as $portrait) {
+        $name = $portrait['name'];
+        $firstName = $portrait['firstname'];
+        $portrait = $portrait['portrait'];
+        ?>
+        <div>
+            <div>
+                <?= $name ?>
+                <?= $firstName ?>
+            </div>
+            <div>
+                <img src="<?= $portrait ?>" width="500" height="500">
+            </div>
+        </div>
+        <?php
+    }
+}
 ?>
 <!doctype html>
 <html lang="fr">
@@ -30,15 +36,7 @@ function displayTab($tab) {
     <body>
         <h1>Tp 3 Partie 10 PHP</h1>
         <div class="container-fluid">
-            <div>
-                <?= displayTab($portrait1) ?>
-            </div>
-            <div>
-                <?= displayTab($portrait2) ?>
-            </div>
-            <div>
-                <?= displayTab($portrait3) ?>
-            </div>
+            <?= displayTab($portrait1, $portrait2, $portrait3, $portrait4) ?>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
