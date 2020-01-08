@@ -1,0 +1,15 @@
+body
+{
+  text-align: center;
+  background-image: url('../img/bear.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+h1
+{
+  background-color: yellow;
+}
+.container
+{
+  color: black;
+}
